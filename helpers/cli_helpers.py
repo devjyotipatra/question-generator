@@ -9,7 +9,7 @@ class CliHelpers(object):
     def extract_tags_from_stackexchange(keywords):
        api = StackExchange()
        tags_list={}
-       for keyword in (keywords):
+       for keyword in keywords:
            tags = api.fetch_tags(keyword)
            tags_dict={}
 
@@ -19,4 +19,4 @@ class CliHelpers(object):
            sorted_tags = sorted(tags_dict.items(), key=operator.itemgetter(0),reverse=True)
            tags_list[keyword] = map(lambda s: s[1], sorted_tags)
 
-           return tags_list
+        return tags_list
