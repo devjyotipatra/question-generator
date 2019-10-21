@@ -11,13 +11,13 @@ def read(file_name):
     return open(os.path.join(os.path.dirname(__file__), file_name)).read()
 
 setup(
-    name="mojave_bifrost",
+    name="birbal",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     url = "https://github.com/DevopediaOrg/question-generator",
-    author="Devopedia",
+    author="Devjyoti Patra",
     author_email="djpatra@gmail.com",
-    description="Generate questions for Devopedia authors",
+    description="Generate questions for Devopedia authors from communities",
     packages=find_packages(exclude=['docs', 'tests*']),
     scripts=[],
     entry_points={
