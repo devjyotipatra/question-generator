@@ -8,23 +8,20 @@ class Api(object):
 
     def __init__(self, source):
       """ Virtually private constructor. """
-      if Api.__instance[source] != None:
+      if self.__instance[source] != None:
          raise Exception("This class is a singleton!")
       else:
-         Api.__instance[source] = get_instance(source)
+          if self.__Api[source] == self.__API.stackoverflow:
+              self.__instance[source] = StackAPI('stackoverflow')
 
 
-    @staticmethod
-    def get_instance(source):
-        if Api.__instance[source] == None:
-            if __Api[source] == __API.stackoverflow:
-                return StackAPI('stackoverflow')
-
-        return Api.__instance[source]
+    @classmethod
+    def get_instance(cls, source):
+        return cls.__instance[source]
 
 
-class __API(Enum):
-    stackoverflow = "stackoverflow"
+    class __API(Enum):
+        stackoverflow = "stackoverflow"
 
-    def __str__(self):
-        return self.value
+        def __str__(self):
+            return self.value
