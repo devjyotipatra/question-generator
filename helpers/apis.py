@@ -1,6 +1,6 @@
 from enum import Enum
 
-import from stackapi import StackAPI
+from stackapi import StackAPI
 
 
 class Api(object):

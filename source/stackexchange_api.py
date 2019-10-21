@@ -1,4 +1,4 @@
-from ..helpers.apis import Api
+from helpers.apis import Api
 
 class StackExchange(object):
 

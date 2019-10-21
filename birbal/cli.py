@@ -7,28 +7,32 @@ from helpers.cli_helpers import *
 class Cli(object):
 
     @classmethod
-    def parse(cls, args):
+    def parse(cls):
         parser = argparse.ArgumentParser(description="Birbal Question Generator", add_help=False)
         sub_parsers = parser.add_subparsers()
 
         topic_parser = sub_parsers.add_parser("topics", help="Keywords that represents the topic")
         topic_parser.add_argument("-k", "--keywords", help="Comma separated list of keywords [max 3]")
+        topic_parser.set_defaults(func=cls.get_topics)
 
         question_parser = sub_parsers.add_parser("questions", help="Questions from the tags")
         question_parser.add_argument("-k", "--tags", help="Comma separated list of tags  \
                                                 [returns max 1000 questions for each tag]")
+        question_parser.set_defaults(func=cls.get_questions)
 
         args = parser.parse_args()
 
-        helpers = Helpers()
+        return args
 
-        try:
-            if args.cmd == "topics":
-                return helpers.fetch_topics(args.keywords)
-            elif args.cmd == "questions":
-                return helpers.fetch_questions(args.topics)
-        finally:
-            logging.debug("Cleaning up")
+
+    @classmethod
+    def get_topics(cls):
+        pass
+
+
+    @classmethod
+    def get_questions(cls):
+        pass
 
 
 
@@ -44,4 +48,4 @@ def main():
 
     Cli.parse()
 
-    sys.exit(ret_code)
+    sys.exit(0)

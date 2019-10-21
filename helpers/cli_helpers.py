@@ -7,9 +7,9 @@ class CliHelpers(object):
 
     @classmethod
     def extract_tags_from_stackexchange(keywords):
-       api = StackExchange()
-       tags_list={}
-       for keyword in keywords:
+        api = StackExchange()
+        tags_list={}
+        for keyword in keywords:
            tags = api.fetch_tags(keyword)
            tags_dict={}
 
